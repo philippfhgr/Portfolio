@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Philipp Horber</title>
+</head>
+
+<body>
+    <header>
+        <nav id="top">
+            <ul>
+                <li id="ProjekteButton"><a href="#projects">Projekte</a></li>
+                <li id="AboutButton"><a href="#about">Über mich</a></li>
+                <li id="KontaktButton"><a href="#contact">Kontakt</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <video autoplay muted loop playsinline preload="metadata" poster="img/bild1.png">
+                <source src="img/PortfolioVideo.mp4" type="video/mp4">
+            </video>
+            <div>
+                <h1>"Freude an Medienproduktion"</h1>
+            </div>
+        </section>
+        <section id="projects">
+            <h2>Projekte</h2>
+
+            <!-- Karussell 1 -->
+            <div class="carousel" data-carousel aria-roledescription="Karussell">
+                <h3 class="carousel-title">Blender & CGI</h3>
+                <button class="carousel-btn prev" data-carousel-prev aria-label="Vorheriges Projekt">‹</button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track" data-carousel-track>
+                        <!-- Slide 1 -->
+                        <article class="slide current" id="c1-s1" role="group" aria-label="Slide 1 von 3">
+                            <div class="project">
+                                <div class="project-img"><img src="img/bild1.png" alt="Blender Halloween"></div>
+                                <div class="project-text">
+                                    <h4>Halloween Projekt Binaural</h4>
+                                    <p>Blender Projekt erstellt mit vorgefertigten Assets und binauralem Audio. Mehr
+                                        dazu hier: <a href="https://digezz.com/halloween">digezz.com/halloween</a></p>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Slide 2 -->
+                        <article class="slide" id="c1-s2" role="group" aria-label="Slide 2 von 3" aria-hidden="true">
+                            <div class="project">
+                                <div class="project-img"><img src="img/bild2.png" alt="Unterwasser Diorama VR"></div>
+                                <div class="project-text">
+                                    <h4>Unterwasser Diorama VR</h4>
+                                    <p>Ein Suchtrupp ist auf einem fremden Planeten auf der Suche nach einem
+                                        angestürzten Schiff. Das Diorama wurde mit vorgefertigten Assets erstellt. Das
+                                        Video ist für VR ausgelegt und findet sich hier: <a
+                                            href="https://youtu.be/0db2PsKwTcQ">https://youtu.be/0db2PsKwTcQ</a></p>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Slide 3 -->
+                        <article class="slide" id="c1-s3" role="group" aria-label="Slide 3 von 3" aria-hidden="true">
+                            <div class="project">
+                                <div class="project-img"><img src="img/bild3.png" alt="Fernsehsendung Ident"></div>
+                                <div class="project-text">
+                                    <h4>Mock Fernsehsendung Ident</h4>
+                                    <p>Ident für eine fiktive Fernsehsendung. Alle Assets wurden selbst erstellt und
+                                        designt.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <button class="carousel-btn next" data-carousel-next aria-label="Nächstes Projekt">›</button>
+                <div class="carousel-dots" role="tablist" aria-label="Blender & CGI" data-carousel-dots>
+                    <button class="dot is-active" role="tab" aria-selected="true" aria-controls="c1-s1"
+                        tabindex="0"></button>
+                    <button class="dot" role="tab" aria-selected="false" aria-controls="c1-s2" tabindex="-1"></button>
+                    <button class="dot" role="tab" aria-selected="false" aria-controls="c1-s3" tabindex="-1"></button>
+                </div>
+            </div>
+
+            <!-- Karussell 2 -->
+            <div class="carousel" data-carousel aria-roledescription="Karussell">
+                <h3 class="carousel-title">Audiovisueller Content</h3>
+                <button class="carousel-btn prev" data-carousel-prev aria-label="Vorheriges Projekt">‹</button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track" data-carousel-track>
+                        <article class="slide current" id="c2-s1" role="group" aria-label="Slide 1 von 3">
+                            <div class="project">
+                                <div class="project-img"><img src="img/bild4.png" alt="Fuerst und Schmalz"></div>
+                                <div class="project-text">
+                                    <h4>Gastroszene in der Schweiz</h4>
+                                    <p>Wir haben Fürst und Schmalz für einen Tag von der Lebensmittelbeschaffung bis zur
+                                        fertigen kulinarischen Inszenierung begleitet. Fürst und Schmalz ist ein kleines
+                                        Team, welches kochkurse, catering und privat cooking anbietet. Wir wollten mit
+                                        ihnen einen Einblick in die Gastrobranche erlangen. Die Kurzdoku ist hier zu
+                                        finden: </p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="slide" id="c2-s2" role="group" aria-label="Slide 2 von 3" aria-hidden="true">
+                            <div class="project">
+                                <div class="project-img"><img src="img/bild5.png" alt="Graffitikultur in Berlin"></div>
+                                <div class="project-text">
+                                    <h4>Graffitikultur in Berlin</h4>
+                                    <p>Ambiences, Foley, Mixdown in 3D-Audio.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="slide" id="c2-s3" role="group" aria-label="Slide 3 von 3" aria-hidden="true">
+                            <div class="project">
+                                <div class="project-img"><img src="img/bild6.png" alt="Downhill Reportage"></div>
+                                <div class="project-text">
+                                    <h4>Downhill Reportage</h4>
+                                    <p>Aufnahme, Schnitt, Loudness-Norm nach EBU R128.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <button class="carousel-btn next" data-carousel-next aria-label="Nächstes Projekt">›</button>
+                <div class="carousel-dots" role="tablist" aria-label="Audio & Sound" data-carousel-dots>
+                    <button class="dot is-active" role="tab" aria-selected="true" aria-controls="c2-s1"
+                        tabindex="0"></button>
+                    <button class="dot" role="tab" aria-selected="false" aria-controls="c2-s2" tabindex="-1"></button>
+                    <button class="dot" role="tab" aria-selected="false" aria-controls="c2-s3" tabindex="-1"></button>
+                </div>
+            </div>
+
+            <!-- Karussell 3 -->
+            <div class="carousel" data-carousel aria-roledescription="Karussell">
+                <h3 class="carousel-title">Experimentelle Projekte</h3>
+                <button class="carousel-btn prev" data-carousel-prev aria-label="Vorheriges Projekt">‹</button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track" data-carousel-track>
+                        <article class="slide current" id="c3-s1" role="group" aria-label="Slide 1 von 3">
+                            <div class="project">
+                                <div class="project-img"><img src="img/bild8.png" alt="Handtracking mit Mediapipe">
+                                </div>
+                                <div class="project-text">
+                                    <h4>Handtracking mit Mediapipe</h4>
+                                    <p>Kurzer Highlight-Cut, Color Grade in Resolve.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="slide" id="c3-s2" role="group" aria-label="Slide 2 von 3" aria-hidden="true">
+                            <div class="project">
+                                <div class="project-img"><img src="img/bild7.png" alt="Die Drei ??? Hörspiel"></div>
+                                <div class="project-text">
+                                    <h4>Die Drei ??? Hörspiel</h4>
+                                    <p>Vertikalformat, schnelle Typo-Animationen.</p>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="slide" id="c3-s3" role="group" aria-label="Slide 3 von 3" aria-hidden="true">
+                            <div class="project">
+                                <div class="project-img"><img src="img/bild9.jpg" alt="Binaurales Aufnahmesetup"></div>
+                                <div class="project-text">
+                                    <h4>Binaurales Aufnahmesetup</h4>
+                                    <p>Screen-Capture + Voice-Over, Kapitelnavigation.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <button class="carousel-btn next" data-carousel-next aria-label="Nächstes Projekt">›</button>
+                <div class="carousel-dots" role="tablist" aria-label="Video & Edit" data-carousel-dots>
+                    <button class="dot is-active" role="tab" aria-selected="true" aria-controls="c3-s1"
+                        tabindex="0"></button>
+                    <button class="dot" role="tab" aria-selected="false" aria-controls="c3-s2" tabindex="-1"></button>
+                    <button class="dot" role="tab" aria-selected="false" aria-controls="c3-s3" tabindex="-1"></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>Über mich</h2>
+            <div id="aboutcontent">
+                <div id="aboutimgcontainer"><img src="img/philipp.jpg" alt="Philipp Horber"></div>
+                <p>Philipp Horber studiert Multimedia Production an der Fachhochschule Graubünden. Er liebt es, kreative
+                    Ideen zum Leben zu erwecken und innovative Lösungen
+                    für
+                    komplexe Probleme der Mediabranche zu finden. Er arbeitet in der Veranstaltungsbranche, in der er im
+                    Studium auch seinen Major macht. In seiner Freizeit beschäftigt er sich mit der neusten Technik oder
+                    dem nächsten Reiseland.
+                </p>
+            </div>
+            <p>Ein Mockbewerbungsvideo von mir für eine fiktive Stelle als Videograf und Content Creator.</p>
+            <div id="MockBewerbung" class="video-container">
+                <video controls preload="metadata" poster="img/bild10.png">
+                    <source src="img/Philipp_Horber_mmp23cv_Bewerbungsvideo_1_WEBSEITE.mp4" type="video/mp4">
+                    Dein Browser unterstützt das Video-Tag nicht.
+                </video>
+            </div>
+        </section>
+        <section id="contact">
+  <h2>Kontakt</h2>
+  <p>Wenn Sie Fragen oder Anfragen haben, zögern Sie bitte nicht, mich zu kontaktieren.</p>
+
+  <div class="form-container">
+    <form action="https://formspree.io/f/mwprjrwz" method="POST" class="contact-form" novalidate>
+      <!-- optional: Formspree-Extras -->
+      <input type="hidden" name="_subject" value="Neue Nachricht über philipphorber.ch">
+      <input type="hidden" name="_redirect" value="https://philipphorber.ch/#top">
+
+      <!-- Honeypot (unsichtbar; blockt simple Bots) -->
+      <div style="position:absolute; left:-10000px;" aria-hidden="true">
+        <label>Bitte nicht ausfüllen
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input id="name" name="name" type="text" required autocomplete="name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">E-Mail *</label>
+        <input id="email" name="email" type="email" required autocomplete="email">
+      </div>
+
+      <div class="form-group full">
+        <label for="message">Nachricht *</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit">Senden</button>
+    </form>
+  </div>
+</section>
+
+        <footer>
+            <p><a href="#top">↑ Zurück nach oben ↑</a></p>
+            <p>&copy; 2025 Philipp Horber. Alle Rechte vorbehalten.</p>
+        </footer>
+    </main>
+    <script>
+        (function () {
+            function initCarousel(root) {
+                const track = root.querySelector('[data-carousel-track]');
+                const slides0 = Array.from(track.children);          // echte Slides
+                const n = slides0.length;
+
+                // Dots (optional)
+                const dotsWrap = root.querySelector('[data-carousel-dots]');
+                const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.dot')) : [];
+
+                // Prev/Next
+                const prevBtn = root.querySelector('[data-carousel-prev]');
+                const nextBtn = root.querySelector('[data-carousel-next]');
+
+                // 1) Klone anfügen (lastClone | slides | firstClone)
+                const firstClone = slides0[0].cloneNode(true);
+                const lastClone = slides0[n - 1].cloneNode(true);
+                firstClone.setAttribute('aria-hidden', 'true');
+                lastClone.setAttribute('aria-hidden', 'true');
+                firstClone.classList.add('is-clone');
+                lastClone.classList.add('is-clone');
+
+                track.insertBefore(lastClone, track.firstChild);
+                track.appendChild(firstClone);
+
+                // 2) interner Index inkl. Klone (Start: 1 = erster echter Slide)
+                let index = 1;
+                const total = n + 2;
+
+                // Helpers
+                function realIndex() {              // 0..n-1
+                    return (index - 1 + n) % n;
+                }
+
+                function setTransform(noTransition = false) {
+                    if (noTransition) {
+                        track.style.transition = 'none';
+                    } else {
+                        track.style.transition = 'transform .35s ease';
+                    }
+                    track.style.transform = `translateX(${-index * 100}%)`;
+                    if (noTransition) {
+                        // Reflow, dann Transition wieder aktivieren
+                        void track.offsetHeight;
+                        track.style.transition = 'transform .35s ease';
+                    }
+                }
+
+                function updateUI() {
+                    // aria-hidden / .current auf echten Slides
+                    const allSlides = Array.from(track.children); // inkl. Klone
+                    allSlides.forEach((s) => {
+                        const isClone = s.classList.contains('is-clone');
+                        s.classList.toggle('current', !isClone && allSlides.indexOf(s) === index);
+                        if (!isClone) s.setAttribute('aria-hidden', 'true');
+                    });
+                    const ri = realIndex();
+                    const realSlide = track.children[index];
+                    if (realSlide && !realSlide.classList.contains('is-clone')) {
+                        realSlide.setAttribute('aria-hidden', 'false');
+                    }
+
+                    // Dots aktualisieren
+                    if (dots.length) {
+                        dots.forEach((d, i) => {
+                            const active = i === ri;
+                            d.classList.toggle('is-active', active);
+                            d.setAttribute('aria-selected', active ? 'true' : 'false');
+                            d.tabIndex = active ? 0 : -1;
+                        });
+                    }
+                }
+
+                function goTo(newIndex) {
+                    index = newIndex;
+                    setTransform(false);
+                }
+
+                // 3) Transition-Ende: bei Klonen „unsichtbar“ auf echten Slide springen
+                track.addEventListener('transitionend', () => {
+                    if (index === total - 1) {      // wir stehen auf firstClone (rechts)
+                        index = 1;                    // echte Slide 0
+                        setTransform(true);           // ohne Transition zurücksetzen
+                    } else if (index === 0) {       // wir stehen auf lastClone (links)
+                        index = total - 2;            // echte Slide n-1
+                        setTransform(true);
+                    }
+                    updateUI();
+                });
+
+                // Buttons
+                if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
+                if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
+
+                // Dots (optional)
+                if (dots.length) {
+                    dots.forEach((dot, i) => {
+                        dot.addEventListener('click', () => goTo(i + 1)); // +1 wegen linkem Clone
+                        dot.addEventListener('keydown', (e) => {
+                            if (e.key === 'ArrowLeft') goTo(index - 1);
+                            if (e.key === 'ArrowRight') goTo(index + 1);
+                        });
+                    });
+                }
+
+                // Keyboard
+                root.tabIndex = 0;
+                root.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') goTo(index - 1);
+                    if (e.key === 'ArrowRight') goTo(index + 1);
+                });
+
+                // Swipe/Drag (unverändert, aber mit neuem Index)
+                let startX = 0, dragging = false, moved = false;
+                function onStart(x) { startX = x; dragging = true; moved = false; }
+                function onMove(x) {
+                    if (!dragging) return;
+                    const dx = x - startX;
+                    if (Math.abs(dx) > 6) moved = true;
+                    track.style.transition = 'none';
+                    track.style.transform = `translateX(${(-index * 100) + (dx / root.clientWidth) * 100}%)`;
+                }
+                function onEnd(x) {
+                    if (!dragging) return;
+                    const dx = x - startX;
+                    dragging = false;
+                    if (moved && Math.abs(dx) > root.clientWidth * 0.15) {
+                        goTo(index + (dx < 0 ? 1 : -1));
+                    } else {
+                        setTransform(false); // zurückschnappen
+                    }
+                }
+                track.addEventListener('pointerdown', (e) => { track.setPointerCapture(e.pointerId); onStart(e.clientX); });
+                track.addEventListener('pointermove', (e) => onMove(e.clientX));
+                track.addEventListener('pointerup', (e) => onEnd(e.clientX));
+                track.addEventListener('pointercancel', () => setTransform(false));
+
+                // 4) Initial
+                setTransform(true);  // auf echten ersten Slide positionieren
+                updateUI();
+            }
+
+            // Alle Karussells auf der Seite initialisieren
+            document.querySelectorAll('[data-carousel]').forEach(initCarousel);
+        })();
+    </script>

@@ -1,0 +1,335 @@
+@import "reset.css";
+@import "fonts.css";
+@import "form.css";
+
+:root {
+    --accent-color: #618bff;
+    --font-title: 700 3rem/120% 'Bitcount Grid Single', monospace;
+    --font-body: 400 1rem/120% 'BBHSansBartle-Regular', sans-serif;
+    color: var(--accent-color);
+}
+
+h2 {
+    font-family: "bbhsansbartle-regular", sans-serif;
+    color: var(--accent-color);
+}
+
+main h2,
+main h3 {
+    text-align: center;
+}
+
+main h2 {
+    margin-top: 3%;
+    font-size: 2rem;
+}
+
+main h3 {
+    padding-top: 2%;
+    color: #fbfbfb;
+}
+
+main h4, main p {
+    color: #fbfbfb;
+}
+
+main {
+    background-color: rgb(24, 24, 24);
+}
+
+.hero {
+    height: 80vh;
+    width: 100%;
+    overflow: clip;
+    position: relative;
+
+    video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    div {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        color: #fbfbfb;
+        font-family: var(--font-title);
+        font: var(--font-title);
+    }
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+    padding: 10px;
+}
+
+nav {
+    background-color: rgb(24, 24, 24);
+    a {
+        font-family: "bbhsansbartle-regular", sans-serif;
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: rgb(214, 214, 214);
+        padding: 20px;
+    }
+    #ProjekteButton {
+        background: rgb(24, 24, 24);
+        border-radius: 10px;
+    }    
+    #AboutButton {
+        background: rgb(24, 24, 24);
+        border-radius: 10px;
+    }
+    #AboutButton a:hover, #ProjekteButton a:hover {
+        color: #acacac;
+    }
+    #KontaktButton {
+        background: var(--accent-color);
+        border-radius: 10px;
+        padding: 3px;
+    }
+    #KontaktButton:hover {
+        background: #346aff;
+    }
+}
+
+#halloween {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        padding: 20px;
+        margin: 50px;
+        max-width: 400px;
+        color: #fbfbfb;
+    }
+}
+
+#halloweenimgcontainer {
+    width: 40%;
+    height: auto;
+    margin-top: 20px;
+    margin: 50px;
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        p {
+            font-family: "bbhsansbartle-regular", sans-serif;
+            
+        }
+}
+
+#aboutcontent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        padding: 20px;
+        margin: 50px;
+        max-width: 400px;
+        font-family: "bbhsansbartle-regular", sans-serif;
+        background-color: rgb(46, 46, 46);
+        color: #fbfbfb;
+        border-radius: 10px;
+    }
+}
+
+#aboutimgcontainer {
+    max-width: 20%;
+    height: auto;
+    margin-top: 20px;
+    margin: 50px;
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+#MockBewerbung {
+    display: flex;
+    width: 70%;
+    height: auto;
+    margin: 20px;
+
+    video {
+        width: 100%;
+        border-radius: 10px;
+    }
+}
+
+#contact {
+    text-align: center;
+    font-family: "bbhsansbartle-regular", sans-serif;
+
+    p {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        font-family: "bbhsansbartle-regular", sans-serif;
+    }
+}
+
+footer {
+    background-color: rgb(46, 46, 46);
+    margin-top: 80px;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    text-align: center;
+    font-family: "bbhsansbartle-regular", sans-serif;
+        p {
+            padding: 10px;
+            a {
+                text-decoration: none;
+                color: var(--accent-color);
+            }
+        }
+}
+
+/* ===== Carousel (minimal, multi-instance) ===== */
+.carousel {
+    position: relative;
+    max-width: 1000px;
+    margin: 1.5rem auto 2.25rem;
+    user-select: none;
+    background-color: rgb(46, 46, 46);
+    border-radius: 10px;
+}
+
+.carousel-title {
+    margin: 0 0 .5rem;
+    font-size: 1.2rem;
+    font-family: "bbhsansbartle-regular", sans-serif;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.35s ease;
+    will-change: transform;
+    z-index: 1;
+}
+
+.slide {
+    flex: 0 0 100%;
+    padding: 1rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.project {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+}
+
+.project-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.project-text h4 {
+    margin: 0 0 .35rem;
+    font-family: "bbhsansbartle-regular", sans-serif;
+}
+
+.project-text p {
+    margin: 0;
+    font-family: "bbhsansbartle-regular", sans-serif;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, .7);
+}
+
+.carousel-btn.prev {
+    left: 8px;
+}
+
+.carousel-btn.next {
+    right: 8px;
+}
+
+.carousel-dots {
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+    margin-top: .6rem;
+}
+
+.carousel-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: 0;
+    background: #fbfbfb;
+    cursor: pointer;
+    margin-bottom: 2%;
+}
+
+.carousel-dots .dot.is-active {
+    background: var(--accent-color);
+}
+
+@media (max-width: 800px) {
+    .project {
+        grid-template-columns: 1fr;
+    }
+
+    #aboutcontent {
+        flex-direction: column;
+
+        p {
+            margin: 0px;
+        }
+    }
+}

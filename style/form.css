@@ -1,0 +1,84 @@
+/* ==== Kontaktformular – Dark Theme passend zu deiner Seite ==== */
+
+#contact .form-container{
+  width: min(720px, 92%);
+  margin: 1.5rem auto 0;
+  padding: 1.25rem 1.25rem 1.5rem;
+  background: rgb(46,46,46);              /* Karten-Hintergrund wie bei dir */
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+}
+
+#contact .contact-form{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  font-family: "bbhsansbartle-regular", sans-serif;
+}
+
+@media (min-width: 640px){
+  #contact .contact-form{
+    grid-template-columns: 1fr 1fr;
+  }
+  #contact .contact-form .full{ grid-column: 1 / -1; }
+}
+
+#contact .form-group{ display:flex; flex-direction:column; }
+
+#contact label{
+  color: #fbfbfb;
+  font-weight: 600;
+  font-size: .95rem;
+  margin-bottom: .35rem;
+}
+
+/* Inputs */
+#contact input,
+#contact textarea{
+  appearance: none;
+  padding: .8rem 1rem;
+  border: 1px solid #2f2f2f;
+  border-radius: 10px;
+  background: rgb(36,36,36);
+  color: #fbfbfb;
+  font: inherit;
+  transition: border-color .2s, background-color .2s;
+}
+
+#contact ::placeholder{ color: #acacac; }
+
+/* Hover & Fokus */
+#contact input:hover,
+#contact textarea:hover{ border-color: #3a3a3a; }
+
+#contact input:focus,
+#contact textarea:focus{
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+/* Button */
+#contact .contact-form button{
+  grid-column: 1 / -1;
+  justify-self: start;
+  background: var(--accent-color);
+  color:#0b0b0b;
+  border: 0;
+  border-radius: 10px;
+  padding: .9rem 1.3rem;
+  font-weight: 700;
+  letter-spacing:.2px;
+  cursor: pointer;
+  transition: background .2s, transform .08s;
+}
+
+#contact .contact-form button:hover{ background:#346aff; }
+#contact .contact-form button:active{ transform: translateY(1px); }
+#contact .contact-form button:focus-visible{
+  outline: none;
+}
+
+/* Mobile: Button volle Breite ist oft angenehmer */
+@media (max-width: 639px){
+  #contact .contact-form button{ width: 100%; justify-self: stretch; }
+}

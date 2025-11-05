@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'BBHSansBartle-Regular';
+    src: url('../fonts/BBHSansBartle-Regular.woff2') format('woff2-variations');
+    src: url('../fonts/BBHSansBartle-Regular.woff') format('woff-variations');
+    src: url('../fonts/BBHSansBartle-Regular.eot') format('embedded-opentype');
+    src: url('../fonts/BBHSansBartle-Regular.eot#iefix') format('embedded-opentype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
