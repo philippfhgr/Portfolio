@@ -1,8 +1,4 @@
-# Portfolio
-
-## Name
-
-Portfolio-Webseite
+# Portfolio-Webseite
 
 ## Beschreibung
 
@@ -80,6 +76,12 @@ Ansonsten habe ich immer wieder daran gearbeitet und wurde so schon früh vor de
 
 Mir hat vor allem ChatGPT geholfen. Ohne das hätte ich die Serverumsetzung wahrscheinlich nicht geschafft oder hätte über Foren oder bei Dozierenden Hilfe suchen müssen.
 Ich habe vom Code viel selbst geschrieben aber bei den Scripts habe ich mir gerne helfen lassen. Auch bei kleineren Fragen oder Abklärungen hat mich ChatGPT gut unterstützt.
+
+## Video Upload
+
+Mockbewerbungsvideo Webseite: https://www.youtube.com/watch?v=xCk-LwtYKxA
+
+Portfolio Video: https://www.youtube.com/watch?v=WXNFyjhpKVE
 
 ## Protokoll
 
