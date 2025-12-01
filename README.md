@@ -1,46 +1,129 @@
 # Portfolio
 
-Juli 2024
+## Name
+
+Portfolio-Webseite
+
+## Beschreibung
+
+Eine eigene Portfolio-Seite für Bewerbungen und als Visitenkarte.
+
+## Auftrag
+
+Ich möchte eine Portfolio-Webseite erstellen und über meinen Homeserver hosten. Die Webseite soll dann zuverlässig, öffentlich zugänglich sein und (möglichst) keine Risiken bezüglich Datensicherheit oder Privatsphäre enthalten. Den Homeserver nutze ich zurzeit als NAS, welches ich auch über Tailscale remote erreichen kann. Ich plane die Webseite über einen Tunnel bei Cloudflare erreichbar zu machen und möchte sowohl nginx sowie nginx Proxy Manager nutzen. Auf dem Server läuft TrueNAS.
+
+## Entwicklungsprozess
+
+Zuerst hatte ich Schwierigkeiten, die Verbindung vom Tunnel zum Proxy Manager zu erstellen. Es war leider zu kompliziert für ChatGPT und Tutorials für meine Herangehensweise gab es auch keine. Deshalb hat die Domain ein Jahr lang mit der Seite «Access Denied» geruht. Mit dem Fortschritt bei ChatGPT konnte ich die Ports dann alle richtig einstellen. Ausserdem musste auch kein LetsEncrypt Zertifikat erstellt werden, weil dieses bereits von Cloudflare übernommen wird. Zuletzt konnte ich die Berechtigungen in mühevoller Arbeit richtig einstellen. So hat jetzt alles Zugriff auf das, was es muss und der Informationsweg funktioniert sauber, sicher und Privacy orientiert.
+
+## Designentscheidungen
+
+Mir war wichtig, dass möglichst viele Informationen mit möglichst wenigen Klicks ersichtlich sind. Wenn ich persönlich auf eine Seite gehe, dann möchte ich vor allem eins: Informationen. Geordnete Unterseiten, kann ich bei einem hohen Informationsgehalt nachvollziehen aber spätestens bei langwierigen Scrollytelling Seiten wird es mühsam.
+Deswegen habe ich meine Seite bewusst auch nach meinen Vorzügen aufgebaut. Ein One-Pager mit direkten Verlinkungen. Theoretisch braucht es gar keinen Klick und es ist schon gut ersichtlich welche Projekte ich in den letzten Jahren erarbeitet habe. Wer mehr wissen möchte, findet aber auch mehr Informationen mit 1-2 Klicks.
+
+## Inspirationen
+
+Designtechnisch habe ich mich vor allem von der Unreal Engine Seite inspirieren lassen. Aber auch die Seite von der Unity Engine hat mir Inspiration geliefert. Mir gefällt, dass direkt ersichtlich ist, für was die Engines benutzt werden können. Ausserdem ist der Look modern, professionell und zugleich technisch.
+
+## Fehlschläge und Umplanung
+
+Ich habe versucht, Ports über meinen Router öffentlich zu schalten. Das hat aber zum Glück aufgrund der Router-Konfiguration nicht funktioniert. Es hätte auch erhebliche Sicherheitslücken eröffnet, welche ich mit der jetztigen Konfiguration umgehen konnte.
+
+Die Swipe-Funktion bei den Projekten musste ich leider löschen, weil es mit der Verlinkung Komplikationen gab. Die Swipe-Funktion muss zwangsweise ganz oben sein, dann kann aber nicht mehr verlinkt werden. Das hindert die Funktionsweise auf Touchgeräten zwar etwas aber übergreifend erweitert die Verlinkung die Funktion der Seite enorm, weswegen ich mich für diesen Tausch entschieden habe.
+
+## Challenges
+
+Die serverseitige Integration hatte definitiv seine Challenges und Kniffe wie bereits beschreiben. Weitere Challenges waren die Lightboxen korrekt darzustellen. Ich hatte lange nur eine Lightbox für alle Inhalte. So wurden die Videos auch unten bei der Galerie angezeigt. Ich habe es dann so gelöst, dass ich zwei Lightboxen für je Projekte und Galerie erstellt habe und diese dann auch fix über den ganzen Viewport gelegt habe. Das gefällt mir sowieso deutlich besser.
+
+Schwierig fand ich auch die Entscheidung zu den Projektbeschrieben. Soll der Text die Hintergründe wie Equipment, Management, Planung usw. beinhalten oder lieber das Endprodukt beschreiben? Ich habe mich für einen Hybrid entschieden mit dem Fokus auf die Beschreibung des Endprodukts. Ich denke, für Aussenstehende ist es zuerst eher interessant, was ich gemacht habe und nicht wie ich es gemacht habe.
+
+## Server
+ 
+*Request-Flow*<img width="1280" height="522" alt="ablauf" src="https://github.com/user-attachments/assets/e6052eea-9e9b-40ed-aeec-d5cb56eacd40" />
+
+•	Internet<br>
+Besucher ruft https://philipphorber.ch auf.
+
+•	Cloudflare<br>
+DNS, HTTPS, Schutz vor Bots/Angriffen, verschleiert meine IP.
+
+•	Cloudflare Tunnel<br>
+Verschlüsselte Verbindung von Cloudflare zu meinem Homeserver.
+
+•	nginx<br>
+Liefert die Webseiten-Daten aus.
+
+•	Webseiten-Daten<br>
+Daten liegen im TrueNAS Dateisystem und wird von nginx ausgeliefert.
+
+Mir war wichtig, dass ich keine persönlichen Daten unnötig preisgebe. So habe ich Telefonnummer und Emailadresse aus dem Mockbewerbungsvideo geschnitten und diese auch sonst nicht auf der Seite publiziert. Ich bin zwar im Video klar zu erkennen aber habe von mir bewusst kein Portraitfoto für die About Section gewählt. Auch im Registrar habe ich darauf geachtet, dass meine Adresse nicht ersichtlich ist.
+Ich bin erreichbar über Formspree. So muss ich auch dort nicht meine Emailadresse preisgeben. Mir ist bewusst, dass der Formspree Code bei Github zu sehen ist. Dieser kann aber nicht ausserhalb meiner Seite verwendet werden. Ausserdem habe ich Einstellungen gegen Spam und Bots vorgenommen. Das Einzige was passieren kann, ist das Jemand manuell mein Monatslimit aufbraucht.
+Die Serverseite ist mit dem Tunnel über Cloudflare gut abgesichert. Ich muss keine Ports öffentlich stellen oder direkten Zugriff zu meinem Server bieten.
+
+## Lerneffekt
+
+Ich durfte mich mit der Serverstruktur auseinandersetzen und habe jetzt ein tieferes Verständnis wie Webseitendaten geliefert werden. Ausserdem konnte ich meine Programmierfähigkeiten verbessern, neue Funktionen kennenlernen und eine Designsprache für mich finden. Letztere habe ich so dann auch in meinen Bewerbungsunterlagen umgesetzt, so dass ein kohärentes Ganzes entsteht.
+Ich habe mich vertieft mit dem Thema Privacy auseinandergesetzt und bin in meiner Reise auch auf Tatsachen wie Fingerprinting oder Crawlerbots aufmerksam geworden. Ich habe gelernt, wie ich meine Identität und Privatsphäre trotz Portfolio-Seite schützen kann.
+
+## Known Bugs
+
+Die Mobile Umsetzung braucht sicher noch einige Verbesserungen. Auch das Testing für zum Beispiel verschiedene Browser und Endgeräte muss ich zeitnah noch angreifen. Um SEO bin ich nicht so besorgt, weil ich nicht davon ausgehe, dass ich seriös aus dem Nichts angeschrieben werde, schaden würde es aber sicher nicht.
+
+Ich war für ein paar Tage in den Bergen und als ich zurückkam, war der Server aus (aus ungeklärten Gründen) und die Webseite somit down. Die Reliability ist demnach sicher etwas eingeschränkt. Wenn der Server abstützt oder die Dockerversionen updaten, wir die Seite down gehen. Und je nach dem wie weit weg ich vom Server bin, dauert es auch seine Zeit, bis der Server wieder läuft und die Seite wieder online ist. Da das aber äusserts selten vorkommen sollte, ist das für mich eine Limitierung, die ich akzeptieren kann. Kürzliche Ereignisse haben gezeigt, dass auch AWS oder Cloudflare keine perfekte Uptime haben.
+
+## Planung
+
+Ich plante Ende November einen einwöchigen Programmier-Retreat in den Bergen. Aufgrund einer Stellenausschreibung musste die Webseite, dann aber schon früher fertig werden.
+Ansonsten habe ich immer wieder daran gearbeitet und wurde so schon früh vor dem Abgabetermin fertig.
+
+## Hilfsmittel
+
+Mir hat vor allem ChatGPT geholfen. Ohne das hätte ich die Serverumsetzung wahrscheinlich nicht geschafft oder hätte über Foren oder bei Dozierenden Hilfe suchen müssen.
+Ich habe vom Code viel selbst geschrieben aber bei den Scripts habe ich mir gerne helfen lassen. Auch bei kleineren Fragen oder Abklärungen hat mich ChatGPT gut unterstützt.
+
+## Protokoll
+
+Juli 2024:
 Aufsetzen Serverstruktur mit Tunnel, Dockerinstallation und Domainerwerb. Zu diesem Zeitpunkt leider nicht erfolgreich aufgrund falscher Ports.
 
-August 2025
+August 2025:
 Erfolgreiches Liveschalten der Webseite. Erstes Testseite ist online erreichbar.
 
-20.10.25
+20.10.25:
 Initiales Aufsetzen von HTML und CSS. Einbindung von Fonts.
 
-21.10.25
+21.10.25:
 Erster Videoschnitt für Hero. Ausarbeiten der Grundstruktur mit Sections.
 
-27.10.25
+27.10.25:
 Nav-Bar programmieren mit Verlinkungen zu den Sections. Erstellen der Projekt-Carousels mit Platzhaltern. About-Section mit Platzhaltern befüllen und Mockbewerbungsvideo neu schneiden und einfügen.
 
-28.10.25
+28.10.25:
 Kontaktformular erstellt und mit Formspree verknüpfen. Bilder bei Projekten einsetzen und Platzhaltertexte ersetzen. Formspree möglichst Spamsicher einrichten.
 
-03.11.25
+03.11.25:
 Weitere Platzhaltertexte ersetzen und Videos oder Dokumentation im Carousel verlinken für Lightbox-Implementierung.
 
-04.11.25
+04.11.25:
 CSS-Anpassungen. Hintergrund, Scroll Margin, data-animate, etc. About Platzhalter ersetzt.
 
-10.11.25
+10.11.25:
 Fotogalerie hinzugefügt und angepasst. Fotos und Bilder durch .webp ersetzen für schnellere Ladezeiten.
 
-11.11.25
+11.11.25:
 Grössen der Fotos beschränkt für optimierte Ladezeiten. Hero Video neu geschnitten und erweitert. Nav-Bar erweitert.
 
-17.11.25
+17.11.25:
 Mobile Support Optimierung.
 
-18.11.25
+18.11.25:
 Kleinere Anpassungen inkl. Bugfixes.
 
-19.11.25
+19.11.25:
 Coaching-Termin mit Jasper
 
-20.11.25
+20.11.25:
 Live-Schaltung der Portfolio-Webseite.
 
-22.11.25
+22.11.25:
 Erste Bewerbung mit Portfolio-Webseite.
