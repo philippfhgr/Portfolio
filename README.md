@@ -42,7 +42,7 @@ Schwierig fand ich auch die Entscheidung zu den Projektbeschrieben. Soll der Tex
 *Request-Flow*<img width="1280" height="522" alt="ablauf" src="https://github.com/user-attachments/assets/e6052eea-9e9b-40ed-aeec-d5cb56eacd40" />
 
 •	Internet<br>
-Besucher ruft https://philipphorber.ch auf.
+User ruft https://philipphorber.ch auf.
 
 •	Cloudflare<br>
 DNS, HTTPS, Schutz vor Bots/Angriffen, verschleiert meine IP.
