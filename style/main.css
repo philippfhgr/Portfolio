@@ -5,9 +5,12 @@
 /* ===== Variablen ===== */
 :root {
   --accent-color: #618bff;
-  --accent: #618bff;
+  --accent-color-hover: #346aff;
+  --font-color: #fbfbfb;
+  --font-color-hover: #acacac;
+  --background-isle: rgb(46, 46, 46);
   --font-title: 700 3rem/120% 'Bitcount Grid Single', monospace;
-  --font-body: 400 1rem/120% 'BBHSansBartle-Regular', sans-serif;
+  --font-family-body: 'BBHSansBartle-Regular', sans-serif;
   --bg-deep: #0b0e13;
   --bg-top: #10131a;
 }
@@ -15,12 +18,12 @@
 /* ===== Grundfarben & Typo ===== */
 body {
   background: var(--bg-deep);
-  color: #fbfbfb;
+  color: var(--font-color);
   font-family: var(--font-body);
 }
 
 h2 {
-  font-family: "bbhsansbartle-regular", sans-serif;
+  font-family: var(--font-family-body);
   color: var(--accent-color);
 }
 
@@ -36,12 +39,12 @@ main h2 {
 
 main h3 {
   padding-top: 2%;
-  color: #fbfbfb;
+  color: var(--font-color);
 }
 
 main h4,
 main p {
-  color: #fbfbfb;
+  color: var(--font-color);
 }
 
 /* ===== HINTERGRUND ===== */
@@ -83,8 +86,7 @@ main {
 }
 
 .hero h1 {
-  color: #fbfbfb;
-  font-family: var(--font-title);
+  color: var(--font-color);
   font: var(--font-title);
 }
 
@@ -143,10 +145,10 @@ nav ul {
 }
 
 nav a {
-  font-family: "bbhsansbartle-regular", sans-serif;
+  font-family: var(--font-family-body);
   font-size: 1.2rem;
   text-decoration: none;
-  color: rgb(214, 214, 214);
+  color: var(--font-color);
   padding: 20px;
 }
 
@@ -154,7 +156,179 @@ nav a {
 #ProjekteButton a:hover,
 #GalerieButton a:hover,
 #logo a:hover {
-  color: #acacac;
+  color: var(--font-color-hover);
+}
+
+/* ===== Carousel ===== */
+.carousel {
+  position: relative;
+  max-width: 1000px;
+  margin: 1.5rem auto 2.25rem;
+  user-select: none;
+  background-color: var(--background-isle);
+  border-radius: 10px;
+}
+
+.carousel-title {
+  margin: 0 0 .5rem;
+  font-size: 1.2rem;
+  font-family: var(--font-family-body);
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.35s ease;
+  will-change: transform;
+  z-index: 1;
+}
+
+.slide {
+  flex: 0 0 100%;
+  padding: 1rem 4rem;
+}
+
+/* === Einheitliche Darstellung für Projektbilder im Karussell === */
+.project {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1rem;
+}
+
+.project-text {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.project-cta {
+  align-self: flex-end;
+  /* rechts in der Textspalte */
+  margin-top: auto;
+  /* schiebt den Button nach unten */
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--accent-color);
+  color: #1b1b1d;
+  cursor: pointer;
+  font: 500 0.95rem/1.1 var(--font-family-body);
+  transition: background .15s ease;
+  border: 0;
+}
+
+.project-cta:hover {
+  border-color: rgba(97, 139, 255, .45);
+  background: var(--accent-color-hover);
+  color: #101014;
+}
+
+.project-cta:active {
+  transform: translateY(0);
+}
+
+/* Galerie & Slides: klarer Pointer-Cursor */
+.gallery-item img,
+.project-img,
+.project-img img {
+  cursor: pointer !important;
+}
+
+/* Container: definiert feste Proportion (z. B. 16:9) */
+.project-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  /* alle Slides gleich hoch */
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #111;
+  /* dezenter Hintergrund, falls das Bild lädt */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bild füllt das Verhältnis sauber aus */
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* füllt den Frame ohne Verzerrung */
+  object-position: center;
+  /* mittig zentrieren */
+  display: block;
+  transition: transform .4s ease;
+}
+
+/* Sanfter Zoom-Effekt, wenn man über den ganzen Slide hovert */
+.slide:hover .project-img img {
+  transform: scale(1.04);
+}
+
+.project-text h4 {
+  margin: 0 0 .35rem;
+  font-family: var(--font-family-body);
+}
+
+.project-text p {
+  margin: 0;
+  font-family: var(--font-family-body);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: rgba(0, 0, 0, .5);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, .7);
+}
+
+.carousel-btn.prev {
+  left: 8px;
+}
+
+.carousel-btn.next {
+  right: 8px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  margin-top: .6rem;
+}
+
+.carousel-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--font-color);
+  cursor: pointer;
+  margin-bottom: 2%;
+}
+
+.carousel-dots .dot.is-active {
+  background: var(--accent-color);
 }
 
 /* ===== Fotogalerie ===== */
@@ -181,7 +355,7 @@ nav a {
 .gallery-item {
   grid-column: span 4;
   /* 3 pro Reihe auf Desktop */
-  background: rgb(46, 46, 46);
+  background: var(--background-isle);
   border: 1px solid rgba(255, 255, 255, .08);
   border-radius: 10px;
   overflow: hidden;
@@ -205,7 +379,6 @@ nav a {
   background: rgb(24, 24, 24);
   transition: transform .25s ease;
 }
-
 
 /* Hover Effekt */
 .gallery-item img:hover {
@@ -259,10 +432,6 @@ nav a {
   pointer-events: auto;
 }
 
-/* Rest (lb-figure, lb-img, lb-video, Buttons, Caption) kannst du so lassen wie du ihn schon hast */
-
-
-
 /* Inhalt */
 .lb-figure {
   margin: 0;
@@ -273,9 +442,6 @@ nav a {
   gap: 10px;
 }
 
-/* 🔹 Bilddarstellung angepasst:
-   – "contain" für beides
-   – vertikale Bilder bekommen automatisch mehr Abstand (kleiner) */
 .lb-img {
   width: 100%;
   height: auto;
@@ -300,7 +466,7 @@ nav a {
 .lb-caption {
   text-align: center;
   color: #ddd;
-  font-family: "bbhsansbartle-regular", sans-serif;
+  font-family: var(--font-family-body);
   background: rgba(0, 0, 0, .35);
   padding: 8px 12px;
   border-radius: 8px;
@@ -377,7 +543,6 @@ nav a {
   }
 }
 
-
 #KontaktButton {
   background: var(--accent-color);
   border-radius: 10px;
@@ -390,7 +555,7 @@ nav a {
 }
 
 #KontaktButton:hover {
-  background: #346aff;
+  background: var(--accent-color-hover);
 
   a {
     color: #101014;
@@ -405,7 +570,7 @@ nav a {
 }
 
 #about p {
-  font-family: "bbhsansbartle-regular", sans-serif;
+  font-family: var(--font-family-body);
 }
 
 #aboutcontent {
@@ -419,9 +584,9 @@ nav a {
   padding: 20px;
   margin: 50px;
   max-width: 400px;
-  font-family: "bbhsansbartle-regular", sans-serif;
-  background-color: rgb(46, 46, 46);
-  color: #fbfbfb;
+  font-family: var(--font-family-body);
+  background-color: var(--background-isle);
+  color: var(--font-color);
   border-radius: 10px;
 }
 
@@ -430,7 +595,6 @@ nav a {
   height: auto;
   margin: 50px;
   margin-top: 24px;
-
 }
 
 #aboutimgcontainer img {
@@ -449,46 +613,6 @@ nav a {
 #MockBewerbung video {
   width: 100%;
   border-radius: 10px;
-}
-
-/* ===== Kontakt ===== */
-#contact {
-  margin-top: 7%;
-  text-align: center;
-  font-family: "bbhsansbartle-regular", sans-serif;
-}
-
-#contact p {
-  max-width: 600px;
-  margin: auto;
-  margin-top: 4px;
-  padding: 20px;
-  font-family: "bbhsansbartle-regular", sans-serif;
-}
-
-/* ===== Footer ===== */
-footer {
-  background: linear-gradient(180deg, #1b1e26 0%, #13161d 100%);
-  border-top: 1px solid rgba(255, 255, 255, .06);
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, .25);
-  margin-top: 80px;
-  padding-top: 100px;
-  padding-bottom: 20px;
-  text-align: center;
-  font-family: "bbhsansbartle-regular", sans-serif;
-}
-
-footer p {
-  padding: 10px;
-}
-
-footer p a {
-  text-decoration: none;
-  color: var(--accent-color);
-}
-
-#MockBewerbung video {
   border: 1px solid rgba(255, 255, 255, .1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
 }
@@ -504,192 +628,44 @@ footer p a {
   transform: translateY(0);
 }
 
-
-/* ===== Carousel ===== */
-.carousel {
-  position: relative;
-  max-width: 1000px;
-  margin: 1.5rem auto 2.25rem;
-  user-select: none;
-  background-color: rgb(46, 46, 46);
-  border-radius: 10px;
+/* ===== Kontakt ===== */
+#contact {
+  margin-top: 7%;
+  text-align: center;
+  font-family: var(--font-family-body);
 }
 
-.carousel-title {
-  margin: 0 0 .5rem;
-  font-size: 1.2rem;
-  font-family: "bbhsansbartle-regular", sans-serif;
+#contact p {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 4px;
+  padding: 20px;
+  font-family: var(--font-family-body);
 }
 
-.carousel-viewport {
-  overflow: hidden;
-  border-radius: 12px;
-  z-index: 1;
+/* ===== Footer ===== */
+footer {
+  background: linear-gradient(180deg, #1b1e26 0%, #13161d 100%);
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .25);
+  margin-top: 80px;
+  padding-top: 100px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-family: var(--font-family-body);
 }
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.35s ease;
-  will-change: transform;
-  z-index: 1;
+footer p {
+  padding: 10px;
 }
 
-.slide {
-  flex: 0 0 100%;
-  padding: 1rem 4rem;
+footer p a {
+  text-decoration: none;
+  color: var(--accent-color);
 }
 
-/* === Einheitliche Darstellung für Projektbilder im Karussell === */
-.project {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 1rem;
-}
-
-.project-text {
-  display: flex;
-  flex-direction: column;
-  gap: .75rem;
-}
-
-.project-cta {
-  align-self: flex-end;      /* rechts in der Textspalte */
-  margin-top: auto;          /* schiebt den Button nach unten */
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: var(--accent-color);
-  color: #1b1b1d;
-  cursor: pointer;
-  font: 500 0.95rem/1.1 "bbhsansbartle-regular", sans-serif;
-  transition: background .15s ease;
-  border: 0;
-  /* WICHTIG: das hier weg */
-  /* position: absolute; */
-  /* bottom: 0; */
-  /* right: 0; */
-}
-
-
-.project-cta:hover {
-  border-color: rgba(97, 139, 255, .45);
-  background: #346aff;
-  color: #101014;
-}
-
-.project-cta:active {
-  transform: translateY(0);
-}
-
-/* Zeig klar, dass Bilder klickbar sind */
-.project-img,
-.project-img img {
-  cursor: pointer;
-}
-
-
-
-
-/* Galerie & Slides: klarer Pointer-Cursor */
-.gallery-item img,
-.project-img,
-.project-img img {
-  cursor: pointer !important;
-}
-
-
-/* Container: definiert feste Proportion (z. B. 16:9) */
-.project-img {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  /* alle Slides gleich hoch */
-  overflow: hidden;
-  border-radius: 10px;
-  background-color: #111;
-  /* dezenter Hintergrund, falls das Bild lädt */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Bild füllt das Verhältnis sauber aus */
-.project-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* füllt den Frame ohne Verzerrung */
-  object-position: center;
-  /* mittig zentrieren */
-  display: block;
-  transition: transform .4s ease;
-}
-
-/* Sanfter Zoom-Effekt, wenn man über den ganzen Slide hovert */
-.slide:hover .project-img img {
-  transform: scale(1.04);
-}
-
-.project-text h4 {
-  margin: 0 0 .35rem;
-  font-family: "bbhsansbartle-regular", sans-serif;
-}
-
-.project-text p {
-  margin: 0;
-  font-family: "bbhsansbartle-regular", sans-serif;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 0;
-  background: rgba(0, 0, 0, .5);
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.carousel-btn:hover {
-  background: rgba(0, 0, 0, .7);
-}
-
-.carousel-btn.prev {
-  left: 8px;
-}
-
-.carousel-btn.next {
-  right: 8px;
-}
-
-.carousel-dots {
-  display: flex;
-  gap: .5rem;
-  justify-content: center;
-  margin-top: .6rem;
-}
-
-.carousel-dots .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: 0;
-  background: #fbfbfb;
-  cursor: pointer;
-  margin-bottom: 2%;
-}
-
-.carousel-dots .dot.is-active {
-  background: var(--accent-color);
-}
-
+/* ===== Scroll-Margin für Anker-Links ===== */
 #projects {
   scroll-margin-top: 70px;
 }
@@ -703,7 +679,6 @@ footer p a {
 }
 
 /* ===== Responsive ===== */
-
 @media (max-width: 1040px) {
   #projects {
     margin-left: 20px;
@@ -725,7 +700,12 @@ footer p a {
 
 @media (max-width: 800px) {
   h1 {
-    padding-left: 20px;
+    font-size: 1rem;
+  }
+
+  .hero h1 {
+    text-align: center;
+    font-size: 2.5rem;
   }
 
   .project {
@@ -759,13 +739,16 @@ footer p a {
   #about {
     scroll-margin-top: 115px;
   }
+
   #leftnav {
     flex-direction: column;
     align-items: flex-start;
   }
+
   #leftnav a {
-      font-size: 16px;
-      padding: 0px;
-      padding-left: 20px;
-    }
+    font-size: 16px;
+    padding: 0px;
+    padding-left: 20px;
   }
+  
+}

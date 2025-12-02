@@ -1,10 +1,20 @@
+/* ===== Variablen ===== */
+:root {
+  --accent-color: #618bff;
+  --accent-color-hover: #346aff;
+  --font-color: #fbfbfb;
+  --background-isle: rgb( 46, 46, 46 );
+  --font-family-body: 'BBHSansBartle-Regular', sans-serif;
+}
+
+
 /* ==== Kontaktformular – Dark Theme passend zu deiner Seite ==== */
 
 #contact .form-container {
   max-width: 1000px;
   margin: 1.5rem auto 0;
   padding: 1.25rem 1.25rem 1.5rem;
-  background: rgb(46, 46, 46);
+  background: var(--background-isle);
   /* Karten-Hintergrund wie bei dir */
   border: 1px solid rgba(255, 255, 255, .08);
   border-radius: 10px;
@@ -14,17 +24,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  font-family: "bbhsansbartle-regular", sans-serif;
-}
-
-@media (min-width: 640px) {
-  #contact .contact-form {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  #contact .contact-form .full {
-    grid-column: 1 / -1;
-  }
+  font-family: var(--font-family-body);
 }
 
 #contact .form-group {
@@ -33,7 +33,7 @@
 }
 
 #contact label {
-  color: #fbfbfb;
+  color: var(--font-color);
   font-weight: 600;
   font-size: .95rem;
   margin-bottom: .35rem;
@@ -50,10 +50,6 @@
   color: #fbfbfb;
   font: inherit;
   transition: border-color .2s, background-color .2s;
-}
-
-#contact ::placeholder {
-  color: #acacac;
 }
 
 /* Hover & Fokus */
@@ -73,19 +69,18 @@
   grid-column: 1 / -1;
   justify-self: start;
   background: var(--accent-color);
-  color: #1b1b1d;
   border: 0;
   border-radius: 10px;
   padding: .9rem 1.3rem;
   letter-spacing: .2px;
   cursor: pointer;
   transition: background .2s, transform .08s;
-  font: 500 0.95rem/1.1 "bbhsansbartle-regular", sans-serif;
+  font: 500 0.95rem/1.1 var(--font-family-body);
 
 }
 
 #contact .contact-form button:hover {
-  background: #346aff;
+  background: var(--accent-color-hover);
   color: #101014;
 }
 
@@ -97,6 +92,16 @@
   outline: none;
 }
 
+@media (min-width: 640px) {
+  #contact .contact-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #contact .contact-form .full {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 1040px) {
   #contact .form-container {
     margin-right: 20px;
@@ -104,7 +109,7 @@
   }
 }
 
-/* Mobile: Button volle Breite ist oft angenehmer */
+/* Mobile: Button */
 @media (max-width: 639px) {
   #contact .contact-form button {
     width: 100%;
