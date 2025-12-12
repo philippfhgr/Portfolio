@@ -1,5 +1,4 @@
 @import "reset.css";
-@import "fonts.css";
 @import "form.css";
 
 /* ===== Variablen ===== */
@@ -122,18 +121,7 @@ nav {
   z-index: 100;
 }
 
-#leftnav {
-  display: flex;
-  flex-direction: row;
-  justify-self: flex-start;
-  align-items: center;
-}
-
-#logo a {
-  margin-right: 50px;
-  font-weight: 600;
-}
-
+/* Haupt-UL */
 nav ul {
   display: flex;
   flex-direction: row;
@@ -145,6 +133,22 @@ nav ul {
   margin: 0;
 }
 
+/* Linke Gruppe */
+.leftnav-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#logo a {
+  margin-right: 50px;
+  font-weight: 600;
+}
+
 nav a {
   font-family: var(--font-family-body);
   font-size: 1.2rem;
@@ -153,12 +157,14 @@ nav a {
   padding: 20px;
 }
 
+/* Hover */
 #AboutButton a:hover,
 #ProjekteButton a:hover,
 #GalerieButton a:hover,
 #logo a:hover {
   color: var(--font-color-hover);
 }
+
 
 /* ===== Carousel ===== */
 .carousel {
@@ -709,7 +715,7 @@ footer p a {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 806px) {
   
   .hero h1 {
     text-align: center;
@@ -745,23 +751,23 @@ footer p a {
   }
 
   #projects {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 180px;
   }
 
   #gallery {
-    scroll-margin-top: 75px;
+    scroll-margin-top: 135px;
   }
 
   #about {
-    scroll-margin-top: 95px;
+    scroll-margin-top: 155px;
   }
 
-  #leftnav {
+  .leftnav-inner {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  #leftnav a {
+  .leftnav-inner a {
     font-size: 16px;
     padding: 0px;
     padding-left: 20px;

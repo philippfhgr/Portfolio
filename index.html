@@ -5,30 +5,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio-Webseite von Philipp Horber. Freude an Medienproduktion.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+    font-src https://fonts.gstatic.com;
+    img-src 'self' data: https://www.youtube.com https://i.ytimg.com;
+    frame-src https://www.youtube.com https://player.vimeo.com;
+    form-action 'self' https://formspree.io;
+    connect-src 'self' https://formspree.io;
+    object-src 'none';
+    base-uri 'self';
+  ">
+  <!-- Preconnect improves loading speed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Load fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style/main.css">
   <title>Philipp Horber</title>
 </head>
 
+
 <body>
-  <header id="top">
-    <nav>
-      <ul>
-        <div id="leftnav">
-          <div id="logo"><a href="#top">PH</a></div>
+<header id="top">
+  <nav>
+    <ul>
+      <li class="leftnav">
+        <ul class="leftnav-inner">
+          <li id="logo"><a href="#top">PH</a></li>
           <li id="ProjekteButton"><a href="#projects">Projekte</a></li>
           <li id="GalerieButton"><a href="#gallery">Fotogalerie</a></li>
           <li id="AboutButton"><a href="#about">Über mich</a></li>
-        </div>
-        <li id="KontaktButton"><a href="#contact">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
+        </ul>
+      </li>
 
+      <li id="KontaktButton"><a href="#contact">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
 
   <main>
     <section class="hero" data-animate>
       <video autoplay muted loop playsinline preload="metadata" poster="img/bild1.png">
-        <source src="img/PortfolioVideo.mp4" type="video/mp4">
+        <source src="img/PortfolioVideo.webm" type="video/webm">
       </video>
       <div>
         <h1>"Freude an Medienproduktion"</h1>
@@ -54,7 +75,7 @@
                     Diese Lernprojekt wurde im Rahmen einen Digezz Produktion realisiert und wurde
                     ursprünglich von der Ausstellung im Tinguely Museum von Julian Charrière
                     "Midnight Zone" inspiriert. Es diente ausserdem als Spielwiese für die Umsetzung
-                    der binauralen Audio-Methode. WORK IN PROGRESS</PROGRESS></p>
+                    der binauralen Audio-Methode. WORK IN PROGRESS</p>
                   <button class="project-cta" data-src="">Video</button>
                 </div>
 
@@ -363,308 +384,7 @@
       <p>&copy; 2025 Philipp Horber. Alle Rechte vorbehalten.</p>
     </footer>
   </main>
-  <!-- ===========================
-     1) CAROUSEL (Endlos + Swipe)
-     =========================== -->
-  <script>
-    (function () {
-      function initCarousel(root) {
-        const track = root.querySelector('[data-carousel-track]');
-        const slides = Array.from(track.children);
-        const n = slides.length;
-
-        const dotsWrap = root.querySelector('[data-carousel-dots]');
-        const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll('.dot')) : [];
-        const prevBtn = root.querySelector('[data-carousel-prev]');
-        const nextBtn = root.querySelector('[data-carousel-next]');
-
-        let index = 0; // 0..n-1
-
-        function setTransform() {
-          track.style.transition = 'transform .35s ease';
-          track.style.transform = `translateX(${-index * 100}%)`;
-        }
-
-        function updateUI() {
-          slides.forEach((s, i) => {
-            s.classList.toggle('current', i === index);
-            s.setAttribute('aria-hidden', i === index ? 'false' : 'true');
-          });
-          dots.forEach((d, i) => {
-            const active = i === index;
-            d.classList.toggle('is-active', active);
-            d.setAttribute('aria-selected', active ? 'true' : 'false');
-            d.tabIndex = active ? 0 : -1;
-          });
-        }
-
-        function goTo(i) {
-          index = (i + n) % n; // wrap, aber ohne Klone im DOM
-          setTransform();
-          updateUI();
-        }
-
-        // Controls
-        prevBtn?.addEventListener('click', () => goTo(index - 1));
-        nextBtn?.addEventListener('click', () => goTo(index + 1));
-        dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
-
-        // Keyboard
-        root.tabIndex = 0;
-        root.addEventListener('keydown', e => {
-          if (e.key === 'ArrowLeft') goTo(index - 1);
-          if (e.key === 'ArrowRight') goTo(index + 1);
-        });
-
-        // Initial
-        setTransform();
-        updateUI();
-      }
-
-      document.querySelectorAll('[data-carousel]').forEach(initCarousel);
-    })();
-  </script>
-
-
-
-  <!-- ==============================
-     2) LIGHTBOX für PROJEKTE
-     ============================== -->
-  <script>
-    (function () {
-      const lb = document.getElementById('lb-projects');
-      if (!lb) return;
-
-      const figure = lb.querySelector('.lb-figure');
-      const caption = lb.querySelector('.lb-caption');
-      const btnClose = lb.querySelector('.lb-close');
-      const btnPrev = lb.querySelector('.lb-prev');
-      const btnNext = lb.querySelector('.lb-next');
-
-      let items = []; // {el, src, alt}
-      let index = 0;
-
-      const clearFigure = () => { while (figure.firstChild) figure.removeChild(figure.firstChild); };
-      const openLB = () => { lb.classList.add('is-open'); lb.setAttribute('aria-hidden', 'false'); lb.focus(); };
-      const closeLB = () => { lb.classList.remove('is-open'); lb.setAttribute('aria-hidden', 'true'); clearFigure(); };
-
-      const isPlayableFile = src => /\.(mp4|webm|ogg)(\?|#|$)/i.test(src || '');
-      const getAlt = (root) => root?.querySelector?.('.project-img img')?.alt || '';
-
-      function toEmbed(url) {
-        try {
-          const u = new URL(url);
-          const host = u.hostname.replace(/^www\./, '');
-          // YouTube
-          if (host.includes('youtube.com') || host === 'youtu.be') {
-            let id = '';
-            if (host === 'youtu.be') id = u.pathname.slice(1);
-            else if (u.searchParams.get('v')) id = u.searchParams.get('v');
-            else {
-              const m = u.pathname.match(/\/(embed|shorts)\/([^/?#]+)/);
-              if (m) id = m[2];
-            }
-            if (!id) return null;
-            const start = u.searchParams.get('t') || u.searchParams.get('start') || 0;
-            return `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1${start ? `&start=${parseInt(start, 10)}` : ''}`;
-          }
-          // Vimeo
-          if (host.includes('vimeo.com')) {
-            const m = u.pathname.match(/\/(\d+)/);
-            return m ? `https://player.vimeo.com/video/${m[1]}?autoplay=1&title=0&byline=0&portrait=0` : null;
-          }
-          return null;
-        } catch { return null; }
-      }
-
-      function collectItems() {
-        // Buttons (haben Priorität)
-        const btns = Array.from(document.querySelectorAll('.project-cta')).map(btn => {
-          let src = (btn.getAttribute('data-src') || '').trim();
-          if (!src) {
-            const wrap = btn.closest('.project')?.querySelector('.project-img[data-video]');
-            src = (wrap?.getAttribute('data-video') || '').trim();
-          }
-          return src ? { el: btn, src, alt: getAlt(btn.closest('.project')) } : null;
-        }).filter(Boolean);
-
-        // Thumbs (Klick aufs Bild erlaubt)
-        const thumbs = Array.from(document.querySelectorAll('.project .project-img[data-video]')).map(wrap => {
-          const src = (wrap.getAttribute('data-video') || '').trim();
-          return src ? { el: wrap, src, alt: getAlt(wrap.closest('.project')) } : null;
-        }).filter(Boolean);
-
-        // Merge ohne Duplikate, in DOM-Reihenfolge
-        const merged = [...btns, ...thumbs].filter((o, i, self) => self.findIndex(x => x.src === o.src) === i);
-        merged.sort((a, b) =>
-          (a.el.compareDocumentPosition(b.el) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1)
-        );
-        return merged;
-      }
-
-      function openMedia(src, alt) {
-        clearFigure();
-        const emb = toEmbed(src);
-        if (emb) {
-          const iframe = document.createElement('iframe');
-          iframe.className = 'lb-video';
-          iframe.src = emb;
-          iframe.title = alt || 'Video';
-          iframe.frameBorder = '0';
-          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-          iframe.allowFullscreen = true;
-          figure.prepend(iframe);
-          caption.textContent = alt || '';
-          openLB();
-          return true;
-        }
-        if (isPlayableFile(src)) {
-          const video = document.createElement('video');
-          video.className = 'lb-img';
-          video.controls = true; video.autoplay = true;
-          const source = document.createElement('source');
-          source.src = src;
-          source.type = src.endsWith('.webm') ? 'video/webm' : src.endsWith('.ogg') ? 'video/ogg' : 'video/mp4';
-          video.appendChild(source);
-          figure.prepend(video);
-          caption.textContent = alt || '';
-          openLB();
-          return true;
-        }
-        return false;
-      }
-
-      function openAt(i) {
-        items = collectItems();
-        if (!items.length) return;
-        index = (i + items.length) % items.length;
-        const { src, alt } = items[index];
-        if (!openMedia(src, alt)) {
-          window.open(src, '_blank', 'noopener,noreferrer');
-        }
-      }
-
-      const prev = () => openAt(index - 1);
-      const next = () => openAt(index + 1);
-
-      // Klicks: Buttons
-      document.addEventListener('click', (e) => {
-        const btn = e.target.closest('.project-cta');
-        if (!btn) return;
-        e.preventDefault();
-        let src = (btn.getAttribute('data-src') || '').trim();
-        if (!src) {
-          const wrap = btn.closest('.project')?.querySelector('.project-img[data-video]');
-          src = (wrap?.getAttribute('data-video') || '').trim();
-        }
-        if (!src) return;
-        const list = collectItems();
-        const i = list.findIndex(x => x.src === src);
-        openAt(i === -1 ? 0 : i);
-      }, true);
-
-      // Klicks: Bild (optional, kannst du entfernen, wenn nur Button öffnen soll)
-      document.addEventListener('click', (e) => {
-        const hit = e.target.closest('.project .project-img[data-video], .project .project-img[data-video] img');
-        if (!hit) return;
-        const wrap = hit.closest('.project .project-img[data-video]');
-        const src = (wrap?.getAttribute('data-video') || '').trim();
-        if (!src) return;
-        e.preventDefault();
-        const list = collectItems();
-        const i = list.findIndex(x => x.src === src);
-        openAt(i === -1 ? 0 : i);
-      }, true);
-
-      // Controls & Close outside
-      btnClose?.addEventListener('click', closeLB);
-      btnPrev?.addEventListener('click', () => prev());
-      btnNext?.addEventListener('click', () => next());
-      lb.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLB();
-        if (e.key === 'ArrowLeft') prev();
-        if (e.key === 'ArrowRight') next();
-      });
-      lb.addEventListener('pointerup', (e) => {
-        const inside = e.target.closest('.lb-figure, .lb-prev, .lb-next, .lb-close');
-        if (!inside) closeLB();
-      });
-    })();
-  </script>
-
-  <!-- ==============================
-     2) LIGHTBOX für FOTOGALERIE
-     ============================== -->
-  <script>
-    (function () {
-      const scope = document.getElementById('gallery');
-      const lb = document.getElementById('lb-gallery');
-      if (!scope || !lb) return;
-
-      const imgEl = lb.querySelector('.lb-img');
-      const caption = lb.querySelector('.lb-caption');
-      const btnClose = lb.querySelector('.lb-close');
-      const btnPrev = lb.querySelector('.lb-prev');
-      const btnNext = lb.querySelector('.lb-next');
-
-      let items = [];
-      let index = 0;
-
-      function collect() {
-        return Array.from(scope.querySelectorAll('img[data-full]'));
-      }
-      function openLB() { lb.classList.add('is-open'); lb.setAttribute('aria-hidden', 'false'); lb.focus(); }
-      function closeLB() { lb.classList.remove('is-open'); lb.setAttribute('aria-hidden', 'true'); imgEl.src = ''; }
-
-      function openAt(i) {
-        items = collect();
-        if (!items.length) return;
-        index = (i + items.length) % items.length;
-        const el = items[index];
-        imgEl.src = el.getAttribute('data-full') || el.src;
-        imgEl.alt = el.alt || '';
-        caption.textContent = el.getAttribute('data-caption') || el.alt || '';
-        openLB();
-      }
-      const prev = () => openAt(index - 1);
-      const next = () => openAt(index + 1);
-
-      scope.addEventListener('click', (e) => {
-        const thumb = e.target.closest('img[data-full]');
-        if (!thumb) return;
-        e.preventDefault();
-        const list = collect();
-        const key = thumb.getAttribute('data-full') || thumb.src;
-        const i = list.findIndex(x => (x.getAttribute('data-full') || x.src) === key);
-        openAt(i === -1 ? 0 : i);
-      });
-
-      btnClose.addEventListener('click', closeLB);
-      btnPrev.addEventListener('click', prev);
-      btnNext.addEventListener('click', next);
-
-      lb.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLB();
-        if (e.key === 'ArrowLeft') prev();
-        if (e.key === 'ArrowRight') next();
-      });
-      lb.addEventListener('pointerup', (e) => {
-        const inside = e.target.closest('.lb-figure, .lb-prev, .lb-next, .lb-close');
-        if (!inside) closeLB();
-      });
-    })();
-  </script>
-
-  <!-- ===============================
-     3) INTERSECTION OBSERVER (FX)
-     =============================== -->
-  <script>
-    (function () {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => e.target.classList.toggle('is-visible', e.isIntersecting));
-      }, { threshold: 0.08 });
-      document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-    })();
-  </script>
-
+<script src="js/carousel.js" defer></script>
+<script src="js/lightbox.js" defer></script>
+<script src="js/animations.js" defer></script>
 </body>
