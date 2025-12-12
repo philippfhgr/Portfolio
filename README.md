@@ -4,6 +4,8 @@
 
 Eine eigene Portfolio-Seite für Bewerbungen und als Visitenkarte.
 
+![Adobe Express - dokgif(1)](https://github.com/user-attachments/assets/df264a5d-cb44-41c5-bac3-b9978244995d)
+
 ## Auftrag
 
 Ich möchte eine Portfolio-Webseite erstellen und über meinen Homeserver hosten. Die Webseite soll dann zuverlässig, öffentlich zugänglich sein und (möglichst) keine Risiken bezüglich Datensicherheit oder Privatsphäre enthalten. Den Homeserver nutze ich zurzeit als NAS, welches ich auch über Tailscale remote erreichen kann. Ich plane die Webseite über einen Tunnel bei Cloudflare erreichbar zu machen und möchte sowohl nginx sowie nginx Proxy Manager nutzen. Auf dem Server läuft TrueNAS.
@@ -14,7 +16,7 @@ Zuerst hatte ich Schwierigkeiten, die Verbindung vom Tunnel zum Proxy Manager zu
 
 ## Designentscheidungen
 
-Mir war wichtig, dass möglichst viele Informationen mit möglichst wenigen Klicks ersichtlich sind. Wenn ich persönlich auf eine Seite gehe, dann möchte ich vor allem eins: Informationen. Geordnete Unterseiten, kann ich bei einem hohen Informationsgehalt nachvollziehen aber spätestens bei langwierigen Scrollytelling Seiten wird es mühsam.
+Mir war wichtig, dass möglichst viele Informationen mit möglichst wenigen Klicks ersichtlich sind. Wenn ich persönlich auf eine Seite gehe, dann möchte ich vor allem eins: Informationen. Geordnete Unterseiten kann ich bei einem hohen Informationsgehalt nachvollziehen aber spätestens bei langwierigen Scrollytelling Seiten wird es mühsam.
 Deswegen habe ich meine Seite bewusst auch nach meinen Vorzügen aufgebaut. Ein One-Pager mit direkten Verlinkungen. Theoretisch braucht es gar keinen Klick und es ist schon gut ersichtlich welche Projekte ich in den letzten Jahren erarbeitet habe. Wer mehr wissen möchte, findet aber auch mehr Informationen mit 1-2 Klicks.
 
 ## Inspirationen
@@ -25,11 +27,13 @@ Designtechnisch habe ich mich vor allem von der Unreal Engine Seite inspirieren 
 
 Ich habe versucht, Ports über meinen Router öffentlich zu schalten. Das hat aber zum Glück aufgrund der Router-Konfiguration nicht funktioniert. Es hätte auch erhebliche Sicherheitslücken eröffnet, welche ich mit der jetztigen Konfiguration umgehen konnte.
 
-Die Swipe-Funktion bei den Projekten musste ich leider löschen, weil es mit der Verlinkung Komplikationen gab. Die Swipe-Funktion muss zwangsweise ganz oben sein, dann kann aber nicht mehr verlinkt werden. Das hindert die Funktionsweise auf Touchgeräten zwar etwas aber übergreifend erweitert die Verlinkung die Funktion der Seite enorm, weswegen ich mich für diesen Tausch entschieden habe.
+Die Swipe-Funktion bei den Projekten musste ich leider löschen, weil es mit der Verlinkung Komplikationen gab. Die Swipe-Funktion muss zwangsweise ganz oben sein, dann kann aber nicht mehr verlinkt werden. Das hindert die Funktionsweise auf Touchgeräten zwar etwas aber übergreifend erweitert die Verlinkung die Funktion der Seite enorm, weswegen ich mich für diesen Kompromiss entschieden habe.
+
+Beim Testing in einem anderen Browser ist mir aufgefallen, dass eine Schriftart anders dargestellt wird als in meinem Browser, so dass der Text kaum lesbar war. Deshalb habe ich für den Haupttext Roboto als neue Schriftart gewählt. Diese ist weit verbreitet und wird sicher von allen Browsern korrekt dargestellt.
 
 ## Challenges
 
-Die serverseitige Integration hatte definitiv seine Challenges und Kniffe wie bereits beschreiben. Weitere Challenges waren die Lightboxen korrekt darzustellen. Ich hatte lange nur eine Lightbox für alle Inhalte. So wurden die Videos auch unten bei der Galerie angezeigt. Ich habe es dann so gelöst, dass ich zwei Lightboxen für je Projekte und Galerie erstellt habe und diese dann auch fix über den ganzen Viewport gelegt habe. Das gefällt mir sowieso deutlich besser.
+Die serverseitige Integration hatte definitiv seine Challenges und Kniffe wie bereits beschreiben. Weitere Challenges waren die Lightboxen korrekt darzustellen. Ich hatte lange nur eine Lightbox für alle Inhalte. So wurden die Videos auch unten bei der Galerie angezeigt. Ich habe es dann so gelöst, dass ich eine Lightboxen für je Projekte und Galerie erstellt habe und diese dann auch fix über den ganzen Viewport gelegt habe. Das gefällt mir auch deutlich besser.
 
 Schwierig fand ich auch die Entscheidung zu den Projektbeschrieben. Soll der Text die Hintergründe wie Equipment, Management, Planung usw. beinhalten oder lieber das Endprodukt beschreiben? Ich habe mich für einen Hybrid entschieden mit dem Fokus auf die Beschreibung des Endprodukts. Ich denke, für Aussenstehende ist es zuerst eher interessant, was ich gemacht habe und nicht wie ich es gemacht habe.
 
@@ -63,13 +67,15 @@ Ich habe mich vertieft mit dem Thema Privacy auseinandergesetzt und bin in meine
 
 ## Known Bugs
 
-Die Mobile Umsetzung braucht sicher noch einige Verbesserungen. Auch das Testing für zum Beispiel verschiedene Browser und Endgeräte muss ich zeitnah noch angreifen. Um SEO bin ich nicht so besorgt, weil ich nicht davon ausgehe, dass ich seriös aus dem Nichts angeschrieben werde, schaden würde es aber sicher nicht.
+Ich war für ein paar Tage in den Bergen und als ich zurückkam, war mein Server ausgeschaltet (aus ungeklärten Gründen) und die Webseite somit down. Die Reliability ist demnach sicher etwas eingeschränkt. Wenn der Server abstürtzt oder die Dockerversionen updaten, wir die Seite down gehen. Und je nach dem wie weit weg ich vom Server bin, dauert es auch seine Zeit, bis der Server wieder läuft und die Seite wieder online ist. Da so ein Absturz aber äusserts selten vorkommen sollte, ist das für mich eine Limitierung, die ich akzeptieren kann. Kürzliche Ereignisse haben gezeigt, dass auch AWS oder Cloudflare keine perfekte Uptime haben.
 
-Ich war für ein paar Tage in den Bergen und als ich zurückkam, war der Server aus (aus ungeklärten Gründen) und die Webseite somit down. Die Reliability ist demnach sicher etwas eingeschränkt. Wenn der Server abstützt oder die Dockerversionen updaten, wir die Seite down gehen. Und je nach dem wie weit weg ich vom Server bin, dauert es auch seine Zeit, bis der Server wieder läuft und die Seite wieder online ist. Da das aber äusserts selten vorkommen sollte, ist das für mich eine Limitierung, die ich akzeptieren kann. Kürzliche Ereignisse haben gezeigt, dass auch AWS oder Cloudflare keine perfekte Uptime haben.
+Sobald ich weitere Fotos hinzufügen möchte, sollte ich auch für die Galerie ein Karussell einrichten. Gerade bei der Mobile Version nehmen ansonsten die einzelnen Fotos zu viel Platz weg. Ich werde dann ein Karusell für jeweils vertikale und horizontale Bilder einfügen.
+
+Um SEO bin ich nicht so besorgt, weil ich nicht davon ausgehe, dass ich seriös aus dem Nichts angeschrieben werde, schaden würde es aber sicher nicht.
 
 ## Planung
 
-Ich plante Ende November einen einwöchigen Programmier-Retreat in den Bergen. Aufgrund einer Stellenausschreibung musste die Webseite, dann aber schon früher fertig werden.
+Ich plante Ende November einen einwöchigen Programmier-Retreat in den Bergen. Aufgrund einer Stellenausschreibung musste die Webseite dann aber schon früher fertig werden. Kleinere Anpassungen habe ich danach noch erledigt.
 Ansonsten habe ich immer wieder daran gearbeitet und wurde so schon früh vor dem Abgabetermin fertig.
 
 ## Hilfsmittel
@@ -129,3 +135,15 @@ Live-Schaltung der Portfolio-Webseite.
 
 22.11.25:
 Erste Bewerbung mit Portfolio-Webseite.
+
+02.12.25
+Dokumentation Anpassungen und ein Bild ausgetauscht. Google Indexierung beantragt.
+
+03.12.25
+Testing und Korrekturen. Font und Font-Implementierung ausgetauscht.
+
+12.12.25
+Vereinheitlichung der Abständen und Scroll-Margins. Layout Anpassungen. Dokumentation fertig gestellt.
+Hero Video komprimiert und neu geschnitten. JS ausgelagert.
+
+
