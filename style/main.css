@@ -68,6 +68,7 @@ main {
   width: 100%;
   overflow: clip;
   position: relative;
+  margin-bottom: 90px;
 }
 
 .hero video {
@@ -333,7 +334,8 @@ nav a {
 
 /* ===== Fotogalerie ===== */
 #gallery {
-  padding: 56px 0;
+  padding-top: 50px;
+  padding-bottom: 70px;
 }
 
 #gallery h2 {
@@ -667,15 +669,15 @@ footer p a {
 
 /* ===== Scroll-Margin für Anker-Links ===== */
 #projects {
-  scroll-margin-top: 70px;
+  scroll-margin-top: 75px;
 }
 
 #gallery {
-  scroll-margin-top: -30px;
+  scroll-margin-top: -15px;
 }
 
 #about {
-  scroll-margin-top: 25px;
+  scroll-margin-top: 20px;
 }
 
 /* ===== Responsive ===== */
@@ -686,15 +688,24 @@ footer p a {
   }
 
   #projects {
-    scroll-margin-top: 65px;
+    scroll-margin-top: 70px;
+  }
+  
+  #about h2 {
+    margin-top: 60px;
+  }
+
+  #contact h2 {
+    margin-top: 120px;
   }
 
   #gallery {
-    scroll-margin-top: 0px;
+    scroll-margin-top: 5px;
+    margin-top: 55px;
   }
 
   #about {
-    scroll-margin-top: 60px;
+    scroll-margin-top: 15px;
   }
 }
 
@@ -703,6 +714,14 @@ footer p a {
   .hero h1 {
     text-align: center;
     font-size: 2.5rem;
+  }
+
+  #about h2 {
+    margin-top: 50px;
+  }
+
+  #contact h2 {
+    margin-top: 100px;
   }
 
   .project {
@@ -726,15 +745,15 @@ footer p a {
   }
 
   #projects {
-    scroll-margin-top: 110px;
+    scroll-margin-top: 120px;
   }
 
   #gallery {
-    scroll-margin-top: 55px;
+    scroll-margin-top: 75px;
   }
 
   #about {
-    scroll-margin-top: 115px;
+    scroll-margin-top: 95px;
   }
 
   #leftnav {
