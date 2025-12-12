@@ -136,13 +136,13 @@ Live-Schaltung der Portfolio-Webseite.
 22.11.25:
 Erste Bewerbung mit Portfolio-Webseite.
 
-02.12.25
+02.12.25:
 Dokumentation Anpassungen und ein Bild ausgetauscht. Google Indexierung beantragt.
 
-03.12.25
+03.12.25:
 Testing und Korrekturen. Font und Font-Implementierung ausgetauscht.
 
-12.12.25
+12.12.25:
 Vereinheitlichung der Abständen und Scroll-Margins. Layout Anpassungen. Dokumentation fertig gestellt.
 Hero Video komprimiert und neu geschnitten. JS ausgelagert.
 
