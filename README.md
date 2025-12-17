@@ -144,6 +144,9 @@ Testing und Korrekturen. Font und Font-Implementierung ausgetauscht.
 
 12.12.25:
 Vereinheitlichung der Abständen und Scroll-Margins. Layout Anpassungen. Dokumentation fertig gestellt.
-Hero Video komprimiert und neu geschnitten. JS ausgelagert.
+Hero Video komprimiert, optimiert und neu geschnitten. JS ausgelagert.
+
+17.12.25:
+Hamburger-Dropdown für Mobile hinzugefügt sowie Favicons.
 
 
