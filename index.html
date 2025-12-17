@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio-Webseite von Philipp Horber. Freude an Medienproduktion.">
+  <meta property="og:title" content="Philipp Horber – Portfolio">
+  <meta property="og:description" content="Portfolio-Webseite von Philipp Horber. Freude an Medienproduktion.">
+  <meta property="og:url" content="https://philipphorber.ch/">
+  <meta property="og:type" content="website">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
@@ -22,29 +25,53 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Load fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style/main.css">
   <title>Philipp Horber</title>
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="img/favicon-512x512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
 </head>
 
-
 <body>
-<header id="top">
-  <nav>
-    <ul>
-      <li class="leftnav">
-        <ul class="leftnav-inner">
-          <li id="logo"><a href="#top">PH</a></li>
-          <li id="ProjekteButton"><a href="#projects">Projekte</a></li>
-          <li id="GalerieButton"><a href="#gallery">Fotogalerie</a></li>
-          <li id="AboutButton"><a href="#about">Über mich</a></li>
-        </ul>
-      </li>
+  <header id="top">
+    <nav>
+      <ul>
+        <li class="leftnav">
+          <ul class="leftnav-inner">
+            <!-- Hamburger -->
+            <li>
+              <button class="nav-toggle" aria-expanded="false" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </li>
 
-      <li id="KontaktButton"><a href="#contact">Kontakt</a></li>
-    </ul>
-  </nav>
-</header>
+            <!-- Logo -->
+            <li id="logo"><a href="#top">PH</a></li>
+
+            <!-- Dropdown-Menü -->
+            <li class="menu-dropdown">
+              <ul>
+                <li class="menu-item" id="ProjekteButton"><a href="#projects">Projekte</a></li>
+                <li class="menu-item" id="GalerieButton"><a href="#gallery">Fotogalerie</a></li>
+                <li class="menu-item" id="AboutButton"><a href="#about">Über mich</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Kontakt bleibt rechts -->
+        <li id="KontaktButton"><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
 
   <main>
     <section class="hero" data-animate>
@@ -278,8 +305,8 @@
 
       <div class="gallery-grid">
         <figure class="gallery-item">
-          <img src="img/norwegen.webp" alt="Norwegische Natur" loading="lazy"
-            data-full="img/norwegen.webp" data-caption="Norwegische Natur">
+          <img src="img/norwegen.webp" alt="Norwegische Natur" loading="lazy" data-full="img/norwegen.webp"
+            data-caption="Norwegische Natur">
         </figure>
 
         <figure class="gallery-item">
@@ -384,7 +411,8 @@
       <p>&copy; 2025 Philipp Horber. Alle Rechte vorbehalten.</p>
     </footer>
   </main>
-<script src="js/carousel.js" defer></script>
-<script src="js/lightbox.js" defer></script>
-<script src="js/animations.js" defer></script>
+  <script src="js/carousel.js" defer></script>
+  <script src="js/lightbox.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/nav.js" defer></script>
 </body>

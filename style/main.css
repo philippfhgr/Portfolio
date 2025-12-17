@@ -18,7 +18,7 @@
 body {
   background: var(--bg-deep);
   color: var(--font-color);
-  font-family: var(--font-body);
+  font-family: var(--font-family-body);
 }
 
 h2 {
@@ -119,6 +119,10 @@ nav {
   background: rgba(18, 20, 27, 0.75);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   z-index: 100;
+}
+
+.nav-toggle {
+  display: none;
 }
 
 /* Haupt-UL */
@@ -675,15 +679,11 @@ footer p a {
 
 /* ===== Scroll-Margin für Anker-Links ===== */
 #projects {
-  scroll-margin-top: 75px;
-}
-
-#gallery {
-  scroll-margin-top: -15px;
+  scroll-margin-top: 85px;
 }
 
 #about {
-  scroll-margin-top: 20px;
+  scroll-margin-top: 35px;
 }
 
 /* ===== Responsive ===== */
@@ -694,9 +694,9 @@ footer p a {
   }
 
   #projects {
-    scroll-margin-top: 70px;
+    scroll-margin-top: 85px;
   }
-  
+
   #about h2 {
     margin-top: 60px;
   }
@@ -706,17 +706,17 @@ footer p a {
   }
 
   #gallery {
-    scroll-margin-top: 5px;
+    scroll-margin-top: 25px;
     margin-top: 55px;
   }
 
   #about {
-    scroll-margin-top: 15px;
+    scroll-margin-top: 45px;
   }
 }
 
 @media (max-width: 806px) {
-  
+
   .hero h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -751,26 +751,113 @@ footer p a {
   }
 
   #projects {
-    scroll-margin-top: 180px;
+    scroll-margin-top: 80px;
   }
 
   #gallery {
-    scroll-margin-top: 135px;
+    scroll-margin-top: 30px;
   }
 
   #about {
-    scroll-margin-top: 155px;
+    scroll-margin-top: 55px;
   }
 
-  .leftnav-inner {
+  /* Burger anzeigen */
+  .nav-toggle {
+    display: flex;
     flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--font-color);
+    transition: transform .25s ease, opacity .25s ease;
+  }
+
+  /* leftnav bleibt horizontal (Burger + Logo) */
+  .leftnav-inner {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Eltern-LI des Hamburger Buttons relativ positionieren */
+  .leftnav-inner>li:first-child {
+    position: relative;
+  }
+
+  /* Dropdown-Menü */
+  .menu-dropdown {
+    position: absolute;
+    top: 100%;
+    /* direkt unter dem Button */
+    left: 0;
+    /* links bündig mit dem Button */
+    background: rgba(18, 20, 27, 0.75);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    z-index: 100;
+    border-radius: 0 0 8px 0;
+  }
+
+  /* Offen */
+  .leftnav-inner.is-open .menu-dropdown {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  /* Liste vertikal */
+  .menu-dropdown ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
     align-items: flex-start;
   }
 
-  .leftnav-inner a {
-    font-size: 16px;
-    padding: 0px;
-    padding-left: 20px;
+  .menu-dropdown li {
+    width: 100%;
   }
-  
+
+  /* Links */
+  .menu-dropdown a {
+    padding: 14px 20px;
+    display: block;
+    width: 100%;
+    color: var(--font-color);
+    text-decoration: none;
+  }
+
+  .menu-dropdown ul li:first-child a {
+  padding-top: 40px;
+}
+
+  .menu-dropdown ul li:last-child a {
+  padding-bottom: 40px;
+}
+
+  .menu-dropdown a:hover {
+    color: var(--accent-color);
+  }
+
+  .nav-toggle.is-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.is-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 }
