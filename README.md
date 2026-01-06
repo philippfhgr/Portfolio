@@ -25,7 +25,7 @@ Designtechnisch habe ich mich vor allem von der Unreal Engine Seite inspirieren 
 
 ## Fehlschläge und Umplanung
 
-Ich habe versucht, Ports über meinen Router öffentlich zu schalten. Das hat aber zum Glück aufgrund der Router-Konfiguration nicht funktioniert. Es hätte auch erhebliche Sicherheitslücken eröffnet, welche ich mit der jetztigen Konfiguration umgehen konnte.
+Ich habe versucht, Ports über meinen Router öffentlich zu schalten. Das hat aber zum Glück aufgrund der Router-Konfiguration nicht funktioniert. Es hätte auch erhebliche Sicherheitslücken eröffnet, welche ich mit der jetzigen Konfiguration umgehen konnte.
 
 Die Swipe-Funktion bei den Projekten musste ich leider löschen, weil es mit der Verlinkung Komplikationen gab. Die Swipe-Funktion muss zwangsweise ganz oben sein, dann kann aber nicht mehr verlinkt werden. Das hindert die Funktionsweise auf Touchgeräten zwar etwas aber übergreifend erweitert die Verlinkung die Funktion der Seite enorm, weswegen ich mich für diesen Kompromiss entschieden habe.
 
@@ -67,9 +67,9 @@ Ich habe mich vertieft mit dem Thema Privacy auseinandergesetzt und bin in meine
 
 ## Known Bugs
 
-Ich war für ein paar Tage in den Bergen und als ich zurückkam, war mein Server ausgeschaltet (aus ungeklärten Gründen) und die Webseite somit down. Die Reliability ist demnach sicher etwas eingeschränkt. Wenn der Server abstürtzt oder die Dockerversionen updaten, wir die Seite down gehen. Und je nach dem wie weit weg ich vom Server bin, dauert es auch seine Zeit, bis der Server wieder läuft und die Seite wieder online ist. Da so ein Absturz aber äusserts selten vorkommen sollte, ist das für mich eine Limitierung, die ich akzeptieren kann. Kürzliche Ereignisse haben gezeigt, dass auch AWS oder Cloudflare keine perfekte Uptime haben.
+Ich war für ein paar Tage in den Bergen und als ich zurückkam, war mein Server ausgeschaltet (aus ungeklärten Gründen) und die Webseite somit down. Die Reliability ist demnach sicher etwas eingeschränkt. Wenn der Server abstürzt oder die Dockerversionen updaten, wir die Seite down gehen. Und je nach dem wie weit weg ich vom Server bin, dauert es auch seine Zeit, bis der Server wieder läuft und die Seite wieder online ist. Da so ein Absturz aber äusserts selten vorkommen sollte, ist das für mich eine Limitierung, die ich akzeptieren kann. Kürzliche Ereignisse haben gezeigt, dass auch AWS oder Cloudflare keine perfekte Uptime haben.
 
-Sobald ich weitere Fotos hinzufügen möchte, sollte ich auch für die Galerie ein Karussell einrichten. Gerade bei der Mobile Version nehmen ansonsten die einzelnen Fotos zu viel Platz weg. Ich werde dann ein Karusell für jeweils vertikale und horizontale Bilder einfügen.
+Sobald ich weitere Fotos hinzufügen möchte, sollte ich auch für die Galerie ein Karussell einrichten. Gerade bei der Mobile Version nehmen ansonsten die einzelnen Fotos zu viel Platz weg. Ich werde dann ein Karussell für jeweils vertikale und horizontale Bilder einfügen.
 
 Um SEO bin ich nicht so besorgt, weil ich nicht davon ausgehe, dass ich seriös aus dem Nichts angeschrieben werde, schaden würde es aber sicher nicht.
 
@@ -143,7 +143,7 @@ Dokumentation Anpassungen und ein Bild ausgetauscht. Google Indexierung beantrag
 Testing und Korrekturen. Font und Font-Implementierung ausgetauscht.
 
 12.12.25:
-Vereinheitlichung der Abständen und Scroll-Margins. Layout Anpassungen. Dokumentation fertig gestellt.
+Vereinheitlichung der Abstände und Scroll-Margins. Layout Anpassungen. Dokumentation fertig gestellt.
 Hero Video komprimiert, optimiert und neu geschnitten. JS ausgelagert.
 
 17.12.25:
