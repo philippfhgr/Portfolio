@@ -149,5 +149,5 @@ Hero Video komprimiert, optimiert und neu geschnitten. JS ausgelagert.
 17.12.25:
 Hamburger-Dropdown für Mobile hinzugefügt sowie Favicons.
 
-06.01.25:
+06.01.26:
 "Work in progress" entfernt und finale Links hinterlegt nach Abschluss der Projekte.
